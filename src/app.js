@@ -7,13 +7,9 @@ const tasksRouter = require('./routers/tasks');
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 app.use(usersRouter);
 app.use(tasksRouter);
-app.use(cors())
-app.all('*', (req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "https://localhost:3000");
-    next();
-});
 
 
 module.exports = app;
